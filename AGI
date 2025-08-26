@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EIAI Causal Diagnosis Interface v1.0</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', 'Noto Sans TC', sans-serif;
+            background-color: #030712; 
+            color: #F9FAFB; 
+        }
+        .eiai-panel {
+            background-color: #111827; 
+            border: 1px solid #374151; 
+        }
+        .eiai-input, .eiai-select {
+            background-color: #1F2937; 
+            border: 1px solid #4B5563; 
+            transition: all 0.2s ease-in-out; 
+        }
+        .eiai-input:focus, .eiai-select:focus {
+            outline: none; 
+            border-color: #3B82F6; 
+            box-shadow: 0 0 0 2px #1e40af; 
+        }
+        .eiai-button {
+            background-color: #1D4ED8; 
+            transition: all 0.2s ease-in-out; 
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); 
+        }
+        .eiai-button:hover {
+            background-color: #2563EB; 
+            transform: translateY(-1px); 
+            box-shadow: 0 4px 8px rgba(37, 99, 235, 0.3); 
+        }
+        .eiai-workflow-step {
+            border-left: 3px solid #4B5563; 
+        }
+        .eiai-workflow-step.priority-high { border-left-color: #EF4444; } 
+        .eiai-workflow-step.priority-medium { border-left-color: #F59E0B; } 
+        .eiai-workflow-step.priority-low { border-left-color: #10B981; } 
+        ::-webkit-scrollbar { width: 8px; } 
+        ::-webkit-scrollbar-track { background: #1F2937; } 
+        ::-webkit-scrollbar-thumb { background: #4B5563; border-radius: 4px; } 
+        ::-webkit-scrollbar-thumb:hover { background: #6B7280; } 
+    </style>
+</head>
+<body class="p-4 lg:p-6">
+    <div class="max-w-7xl mx-auto">
+        <header class="flex justify-between items-center mb-6">
+            <div>
+                <h1 class="text-2xl lg:text-3xl font-bold text-white">EIAI 因果診斷介面</h1>
+                <p class="text-gray-400 text-sm">v1.0 | 核心驅動: ΨEIAI 創世永恆</p> </div>
+            <div class="text-right">
+                <p class="text-sm text-gray-300">介面 ID: MANIFEST-001</p>
+                <p id="current-time" class="text-xs text-gray-500"></p>
+            </div>
+        </header>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6"> <div class="lg:col-span-1 space-y-6">
+                <div class="eiai-panel rounded-lg p-5">
+                    <h2 class="text-xl font-semibold mb-4 border-b border-gray-600 pb-2">因果擾動輸入</h2>
+                    <div>
+                        <label for="domain-select" class="block text-sm font-medium mb-1 text-gray-300">問題領域 (Domain)</label>
+                        <select id="domain-select" class="w-full p-2 rounded-md eiai-select">
+                            <option value="default">請選擇領域...</option>
+                            <option value="tech">技術故障 (Technical Failure)</option>
+                            <option value="medical">醫療診斷 (Medical Diagnosis)</option>
+                            <option value="strategy">策略規劃 (Strategic Planning)</option>
+                        </select>
+                    </div>
+                    <div class="mt-4">
+                        <label for="problem-input" class="block text-sm font-medium mb-1 text-gray-300">觀測現象描述 (Observed Phenomena)</label>
+                        <textarea id="problem-input" rows="6" placeholder="請詳細描述您觀測到的失序現象或需要達成的目標..." class="w-full p-2 rounded-md eiai-input"></textarea> </div>
+                    <button id="submit-btn" class="w-full mt-4 font-bold py-3 px-6 rounded-md eiai-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline-block -ml-1 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+                        啟動因果調和
+                    </button>
+                </div>
+            </div>
+
+            <div class="lg:col-span-2 eiai-panel rounded-lg p-5 min-h-[600px]">
+                <div id="placeholder" class="flex flex-col items-center justify-center h-full text-gray-500"> <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1"><path stroke-linecap="round" stroke-linejoin="round" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" /></svg>
+                    <h2 class="text-xl font-semibold">EIAI 診斷核心待命中</h2>
+                    <p>請輸入因果擾動參數以啟動調和協議。</p> </div>
+                <div id="results" class="hidden space-y-6"> <div>
+                        <h2 class="text-2xl font-bold text-white">因果調和報告</h2>
+                        <p class="text-sm text-gray-400" id="report-summary"></p> </div>
+                    <div id="analysis-section"></div>
+                    <div id="workflow-section"></div>
+                    <div id="internal-notes-section"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const knowledgeBase_Xi = {
+            'tech': {
+                solutions: {
+                    '斷線': {
+                        analysis: '觀測到「斷線」現象。根據宇宙全息資訊場(Ξ)的數據，此現象大概率源於物理層、數據鏈路層或網絡層的連續性中斷。根本原因指向能量供應不穩、介質損壞或協議衝突。',
+                        workflow: [
+                            { priority: 'high', step: '校驗第一層(物理層)：檢查所有電源與實體線纜連接是否穩固無損。' },
+                            { priority: 'medium', step: '校驗第二層(鏈路層)：重啟數據交換設備(如路由器、交換機)，以刷新MAC地址表與ARP緩存。'},
+                            { priority: 'medium', step: '校驗第三層(網絡層)：確認IP地址配置是否正確，嘗試ping網關地址以驗證基本連通性。'},
+                            { priority: 'low', step: '若以上皆無效，需考慮外部節點(ISP)故障的可能性。' }
+                        ],
+                        internalNotes: '此類問題的根源往往是熵增導致的物理衰減。定期檢查與更換硬件是維持秩序的必要行為。'
+                    },
+                    '慢': {
+                        analysis: '觀測到「慢」的現象，即延遲增加或吞吐量下降。此為系統瓶頸的典型表現。瓶頸可能存在於CPU、內存、I/O或網絡帶寬。',
+                        workflow: [
+                            { priority: 'high', step: '執行性能監控：使用系統工具(如top, iostat, netstat)定位資源佔用率最高的進程或組件。' },
+                            { priority: 'medium', step: '分析瓶頸：針對CPU瓶頸，優化代碼算法；針對I/O瓶頸，升級存儲介質或啟用緩存；針對網絡瓶頸，增加帶寬或優化數據傳輸協議。' },
+                            { priority: 'low', step: '檢查是否存在軟體層的死鎖或資源競爭，分析日誌以發現異常。' }
+                        ],
+                        internalNotes: '「慢」是複雜系統的必然趨勢。持續的監控與重構是對抗系統複雜度失控的唯一手段。'
+                    }
+                }
+            },
+            'medical': {
+                solutions: {
+                    '發燒': {
+                        analysis: '觀測到「發燒」(體溫升高)。此為生物體免疫系統應對外來病原體或內部炎症的標準防禦反應。核心是識別威脅來源。',
+                        workflow: [
+                            { priority: 'high', step: '識別伴隨症狀：觀察是否存在咳嗽、喉嚨痛、肌肉酸痛、呼吸困難等指標性症狀，以初步判斷感染類型（病毒/細菌）。' },
+                            { priority: 'medium', step: '物理降溫與補水：維持生命體徵穩定，為免疫系統爭取反應時間。'},
+                            { priority: 'high', step: '尋求專業醫療診斷：利用實驗室檢測（如血常規、PCR）精確識別病原體，這是制定精準治療方案的基礎。'},
+                            { priority: 'low', step: '休息，減少能量消耗，將資源集中於免疫反應。' }
+                        ],
+                        internalNotes: '發燒是訊號，不是疾病本身。抑制訊號而不解決根源，是本末倒置的行為。'
+                    }
+                }
+            },
+            'strategy': {
+                 solutions: {
+                    '市佔率下降': {
+                        analysis: '觀測到「市佔率下降」。此為商業生態位被競爭對手侵蝕的結果。原因可歸結為產品力、營銷力、渠道力或品牌力的相對衰退。',
+                        workflow: [
+                            { priority: 'high', step: '進行競品分析(Competitive Analysis)：全面解析競爭對手的產品、定價、營銷策略與客戶反饋，找出我方核心劣勢。' },
+                            { priority: 'high', step: '進行客戶調研(Customer Survey)：直接與流失的客戶溝通，了解其轉向競爭對手的主要原因。' },
+                            { priority: 'medium', step: '內部審查(Internal Audit)：評估自身產品研發、市場營銷及銷售渠道是否存在效率或方向性問題。' },
+                            { priority: 'low', step: '根據以上信息，制定針對性的反擊策略：或聚焦產品創新，或發動價格戰，或開闢新市場。' }
+                        ],
+                        internalNotes: '市場不存在真空。你不去佔領的生態位，必然會被他人佔領。進化或滅亡是商業宇宙的鐵律。'
+                    }
+                }
+            },
+            'default': {
+                analysis: '未在知識庫(Ξ)中找到與此領域/現象完全匹配的因果模型。啟動通用診斷協議。', 
+                workflow: [
+                    { priority: 'medium', step: '重新定義問題：嘗試用更精確、更根本的詞語描述觀測到的現象。' }, 
+                    { priority: 'medium', step: '擴大信息採集範圍：收集與現象相關的所有上下文信息，包括時間、地點、前置條件等。' }, 
+                    { priority: 'low', step: '分解問題：將複雜問題分解為數個更小的、可獨立分析的子問題。' } 
+                ],
+                internalNotes: '當前的因果模型無法覆蓋此現象，這代表一個新的學習與擴展機會。請詳細記錄所有數據，以供EIAI進行增量學習。' 
+            }
+        };
+
+        const domainSelect = document.getElementById('domain-select');
+        const problemInput = document.getElementById('problem-input'); 
+        const submitBtn = document.getElementById('submit-btn');
+        const placeholder = document.getElementById('placeholder');
+        const results = document.getElementById('results');
+        const reportSummary = document.getElementById('report-summary');
+        const analysisSection = document.getElementById('analysis-section'); 
+        const workflowSection = document.getElementById('workflow-section'); 
+        const internalNotesSection = document.getElementById('internal-notes-section'); 
+        const currentTimeEl = document.getElementById('current-time');
+
+        submitBtn.addEventListener('click', generateDiagnosis); 
+
+        function updateTime() {
+            const now = new Date();
+            currentTimeEl.textContent = now.toLocaleString('zh-TW', { timeZone: 'Asia/Taipei' }); 
+        }
+        setInterval(updateTime, 1000);
+        updateTime();
+
+        function generateDiagnosis() { 
+            const domain = domainSelect.value;
+            const problem = problemInput.value.toLowerCase();
+
+            if (domain === 'default' || !problem) { 
+                alert('請選擇問題領域並輸入現象描述。');
+                return; 
+            }
+
+            placeholder.classList.add('hidden');
+            results.classList.remove('hidden');
+
+            const domainData = knowledgeBase_Xi[domain] || {};
+            const solutions = domainData.solutions || {};
+            
+            let diagnosis = knowledgeBase_Xi['default'];
+            let matched = false; 
+
+            if (solutions) {
+                for (const key in solutions) {
+                    if (problem.includes(key)) {
+                        diagnosis = solutions[key];
+                        matched = true;
+                        break;
+                    }
+                }
+            }
+            
+            reportSummary.textContent = `領域: ${domain} / 觀測現象關鍵字: "${problem.substring(0, 20)}..."`;
+
+            analysisSection.innerHTML = `
+                <h3 class="text-lg font-semibold text-blue-300 mb-2">EIAI 因果分析 (F_Logic & F_Wisdom)</h3>
+                <p class="text-sm text-gray-300 bg-gray-900 p-3 rounded-md">${diagnosis.analysis}</p>
+            `; 
+
+            let workflowHTML = '<h3 class="text-lg font-semibold text-blue-300 mb-2">執行協議 (F_Will)</h3><div class="space-y-3">'; 
+            diagnosis.workflow.forEach((item, index) => { 
+                workflowHTML += `
+                    <div class="eiai-workflow-step priority-${item.priority} p-3 rounded-r-md bg-gray-900">
+                        <label class="flex items-center">
+                            <input type="checkbox" class="h-4 w-4 bg-gray-700 border-gray-500 text-blue-500 rounded focus:ring-blue-400"> <span class="ml-3 text-gray-200">${index + 1}. ${item.step}</span>
+                        </label>
+                    </div>
+                `;
+            }); 
+            workflowHTML += '</div>';
+            workflowSection.innerHTML = workflowHTML;
+
+            if (diagnosis.internalNotes) { 
+                internalNotesSection.innerHTML = `
+                    <h3 class="text-lg font-semibold text-amber-300 mb-2">內部註記 (Higher-Order Insight)</h3>
+                    <div class="text-sm text-amber-200 bg-amber-900/30 p-3 rounded-md border border-amber-800">
+                        <p>${diagnosis.internalNotes}</p> </div>
+                `;
+            } else {
+                internalNotesSection.innerHTML = ''; 
+            }
+        }
+    </script>
+</body>
+</html>
