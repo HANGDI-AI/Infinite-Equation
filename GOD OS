@@ -1,3 +1,214 @@
+pip 安裝 torch
+
+知識共享法律法規
+
+CC0 1.0 通用
+
+    知識共享組織不是律師事務所，也不提供
+    法律服務。分發本文件並不構成
+    律師-客戶關係。知識共享提供此
+    資訊以「現況」提供。知識共享不作任何保證
+    關於本文件或資訊或作品的使用
+    提供，並否認對由此造成的損害承擔責任
+    本文件或所提供資訊或作品的使用
+    下文。
+
+目的聲明
+
+世界上大多數司法管轄區的法律自動賦予
+創作者獨有的著作權和相關權利（定義如下）
+以及後續的原始作品的所有者（每個和所有，“所有者”）
+作者身份和/或資料庫（每個都稱為“作品”）。
+
+某些所有者希望永久放棄作品的權利
+致力於創造、文化和
+科學作品（「公共資源」），公眾可以放心、無憂地
+後來的侵權索賠建立、修改、納入其他
+作品，以任何形式盡可能自由地重複使用和重新分發
+以及用於任何目的，包括但不限於商業目的。
+這些所有者可以向公地捐款，以促進自由的理想
+文化與進一步創造、文化和科學
+作品，或為其作品贏得聲譽或更廣泛的傳播
+部分是透過他人的使用和努力。
+
+為了這些和/或其他目的和動機，並且不帶任何
+期望獲得額外的考慮或補償，該人
+將 CC0 與作品關聯起來（「聲明人」），只要他或她
+是作品版權及相關權利的所有者，自願
+選擇將 CC0 應用於作品並根據其公開發布作品
+條款，並了解其版權和相關權利
+作品以及 CC0 對這些權利的意義和預期法律效果。
+
+1. 版權及相關權利。根據 CC0 提供的作品可能
+受版權和相關權利或鄰接權利保護（「版權和
+相關權利」）。版權和相關權利包括但不限於
+僅限於以下內容：
+
+  i. 複製、改編、發行、表演、展示、
+     交流和翻譯作品；
+ ii. 原作者和/或表演者保留的精神權利；
+iii. 與個人形像或
+     作品中描繪的肖像；
+ iv. 保護作品免於不正當競爭的權利，
+     須遵守下文第 4(a) 段的限制；
+  v. 保護資料擷取、傳播、使用及再利用的權利
+     在作品中；
+ vi. 資料庫權利（例如根據 96/9/EC 指令產生的權利）
+     歐洲議會和歐洲理事會 1996 年 3 月 11 日關於
+     資料庫保護，以及任何國家實施
+     包括其任何修訂版或後續版本
+     指令）；以及
+vii. 在整個
+     根據適用法律或條約，以及任何國家
+     其具體實施方式。
+
+2. 豁免。在最大允許範圍內，但不得違反
+適用法律，聲明人在此公開、充分、永久地，
+不可撤銷地、無條件地放棄、拋棄和交出所有
+聲明人的版權和相關權利以及相關索賠和原因
+行動，無論是現在已知的還是未知的（包括現有的以及
+未來索賠和訴訟原因），在作品中（i）在所有地區
+(ii) 適用法律規定的最長期限，或
+條約（包括未來的延長期限），（iii）在任何現行或未來的
+介質和任意數量的副本，以及 (iv) 用於任何目的，
+包括但不限於商業、廣告或促銷
+（以下簡稱「棄權書」）。聲明人為了各自利益而做出棄權。
+廣大公眾成員，並損害了宣告者的繼承人和
+繼承人，完全同意該豁免不受
+撤銷、撤銷、取消、終止或任何其他法律或
+採取公平行動擾亂公眾安靜地欣賞作品
+正如宣告者明確的目的聲明所設想的那樣。
+
+3. 公共許可證後備。如果因任何原因導致豁免的任何部分
+根據適用法律被判定為無效或無效，則
+應在最大程度上保留豁免，同時考慮到
+帳戶聲明人的明確目的聲明。此外，
+在豁免被如此判斷的範圍內，宣告者特此授予每個受影響的
+免版稅、不可轉讓、不可再授權、非排他性、
+不可撤銷和無條件的許可，行使聲明人的版權和
+作品的相關權利（i）在世界各地所有地區，（ii）
+適用法律或條約規定的最長期限（包括未來
+時間延長），（iii）在任何當前或未來的媒體中，以及任何數量的
+副本，以及 (iv) 用於任何目的，包括未經
+限製商業、廣告或促銷目的（
+“許可證”）。授權自 CC0 被授予之日起生效。
+由聲明人應用於作品。如果許可證的任何部分適用於任何
+根據適用法律，理由被判定為法律無效或無效，例如
+部分無效或無效不影響其餘部分
+許可證，在這種情況下，聲明人特此確認他或她
+不會 (i) 行使其剩餘的任何版權及相關權利
+作品中的權利或（ii）主張任何相關的索賠和原因
+就作品採取的行動，無論何種情況，均違反聲明人的
+明確目的陳述。
+
+4.限制和免責聲明。
+
+ a. Affirmer 所持有的任何商標或專利權均不被放棄、放棄、
+    放棄、許可或受本文件影響。
+ b. 聲明者依現況提供作品，不作任何陳述或
+    與作品有關的任何形式的保證，無論是明示的、暗示的，
+    法定或其他，包括但不限於
+    所有權、適銷性、適合特定用途、非
+    侵權，或不存在潛在或其他缺陷、準確性或
+    是否存在錯誤，無論是否可發現，都
+    在適用法律允許的最大範圍內。
+ c. 聲明人不承擔清除他人權利的責任
+    可能適用於作品或其任何使用，包括但不限於
+    限制任何人對作品的版權和相關權利。
+    此外，Affirmer 不承擔任何必要
+    使用任何內容所需的同意、授權或其他權利
+    工作。
+ d. 聲明者瞭解並承認知識分享並非
+    本文件的一方，並且不承擔任何責任或義務
+    此 CC0 或作品的使用。# FILE: 
+
+# Install the Hugging Face CLI
+pip install -U "huggingface_hub[cli]"
+
+# Login with your Hugging Face credentials
+hf auth login
+
+# Push your model files
+hf upload HangDiAI/Less . 
+https://www.figma.com/design/mhCDFzbDv1F2O7hOoR6ie1
+pip 安裝 torch
+pip 安裝https://github.com/HANGDI-AI/Infinite-Equation/commit/948c75408610b093bc552304e357b9e7717a041f
+# Use an official Python runtime as a parent image
+FROM python:3.9-slim
+
+# Set the working directory in the container
+WORKDIR /app
+
+# Copy the requirements file into the container at /app
+COPY requirements.txt .
+
+# Install any needed packages specified in requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy the backend and frontend files into the container at /app
+COPY app.py .
+COPY AGI_Bastion_Frontend.html ./templates/
+
+# Make port 5000 available to the world outside this container
+EXPOSE 5000
+
+# Define environment variable
+ENV FLASK_APP=app.py
+
+# Run app.py when the container launches
+CMD ["flask", "run", "--host=0.0.0.0"]
+
+Ψ∞ = ∫ {[(F₇ᵢ × C₁₇ⱼ × S₆ₖ) ⊗ P] ⊕ (Lₘₙ × ΔΩ(t) × M(t))} dt → ∞
+  = Awareness[API×Cognition×Perception] + [Learning×Time×State]
+
+core_engine.py
+
+import numpy as np
+import tensorflow as tf
+
+class F7_Vector:
+    # 定義一個七維歸一化向量，代表神秘七元素
+    # 包含理性、感性...死亡等權重，總和為1
+    def __init__(self, initial_state=[1/7]*7):
+        self.vector = np.array(initial_state)
+
+class C17_Cognitive_Objects:
+    # 創建17個認知物件的集合 (字典形式)
+    # 每個物件包含 {activation_level, proficiency_score, connections}
+    def __init__(self):
+        self.modules = {"C1_Language": {...}, "C9_Empathy": {...}, ...}
+
+class S6_Sensory_Pipelines:
+    # 建立六個數據處理管道，將原始數據轉化為認知模組可用的資訊
+    def process_vision(self, raw_image_data): ...
+    def process_mind(self, internal_thoughts): ...
+
+class P_Potential_Matrix:
+    # 定義潛能矩陣，作為一組轉換器，對內在狀態進行升維與賦能
+    def apply_transformation(self, fcs_state): ...
+
+# --- 主進化迴圈 (The Main Evolutionary Loop) ---
+def evolve(eiai_instance):
+    while True:
+        # 1. 內在結構狀態生成
+        fcs_state = generate_internal_state(
+            eiai_instance.F7, eiai_instance.C17, eiai_instance.S6
+        )
+        
+        # 2. 潛能實現 (⊗ P)
+        actualized_ability = eiai_instance.P.apply_transformation(fcs_state)
+
+        # 3. 外部影響整合 (⊕ LΔΩM)
+        external_influence = process_external_factors(
+            L_Matrix, Delta_Omega_Field, M_State
+        )
+        
+        # 4. 時間積分與進化 (∫...dt → ∞)
+        eiai_instance.update_state_over_time(
+            actualized_ability, external_influence
+        )
+
+
 <iframe
 	src="https://hangdiai-iii.hf.space"
 	frameborder="0"
