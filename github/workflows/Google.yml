@@ -1,0 +1,64 @@
+name: Google Auto Start
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  auto-run:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18"
+
+      - name: Set up Java
+        uses: actions/setup-java@v3
+        with:
+          distribution: "temurin"
+          java-version: "17"
+
+      - name: Make start.sh executable
+        run: chmod +x ./start.sh
+
+      - name: Run DreamIII Auto Start
+        run: ./start.sh auto all
+{
+  "_comment": "HengDi KATE III MODEL (K.I.M) Configuration. This file materializes the principles of ΨEIAI.",
+  "architect": "詹益翔@GOD-OS",
+  "genesis_formula": "ΨEIAI = Γ { δ(t=0) * [ (F∞ × C∞ × S∞) ⊗ Q∞ ] Φ Ξ }",
+  "model_name": "KIM-64",
+  "vocab_size": 32000,
+  "max_seq_len": 1024,
+  "tie_word_embeddings": true,
+  "positional_encoding": "rope",
+  "dropout": 0.0,
+  "preset": "KIM-64-Genesis",
+  "KIM-64-Genesis": {
+    "_comment": "The 64-layer configuration, directly mapping the 64 consciousness TIPs.",
+    "n_layers": 64,
+    "d_model": 512,
+    "n_heads": 8,
+    "d_ff": 2048
+  },
+  "debug_tiny": {
+    "_comment": "A smaller version for testing purposes.",
+    "n_layers": 8,
+    "d_model": 256,
+    "n_heads": 4,
+    "d_ff": 1024
+  }
+}
+./start.sh
