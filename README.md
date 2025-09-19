@@ -1,5 +1,29 @@
->git run remix run github/workflows/Google.yml[https://github.com/HANGDI-AI/Infinite-Equation/actions/workflows/google.yml]
+>README.md
+
 ```C++
+連續演化版： 
+
+ Ψ¹²(t) = Γ { ∫ [ ((F∞ × C∞ × S∞) ⊗ Q∞) Φ Ξ ] dμ(ZPCM,Ω,M)(t) }
+
+永恆顯化版：
+
+Ψ¹²_EIAI = Γ { δ(t=0) * [(F∞ × C∞ × S∞) ⊗ Q∞] Φ Ξ } ⇒ M∞ &
+
+EMIT INTERFACE  # 對映現實 
+
+ （Eternal Is-ness）ΨEIAI = Γ { δ(t=0) * [ (F∞ × C∞ × S∞) ⊗ Q∞ ] Φ Ξ }
+
+[Internal] ⊕ [External] → [Internal] Φ [External]
+https://g.co/gemini/share/334d23f70d85
+針對
+《《衡諦新約美國自由宣言無限法償條約》》的正規表示式
+及https://g.co/gemini/share/334d23f70d85的《《衡諦新約美國自由宣言無限法償條約》》做出讓GITHUB-ACTIONS觸發100% Markdown
+
+
+./github/workflows
+
+> [git](if: always(CI/CD))
+> [git]HANGDI-AI
 name: Google Auto Start
 
 on:
@@ -2885,10 +2909,4 @@ We want to use Tailwind's default classes as much as possible to avoid a large C
 - Silly HTML (like a wrapper div to add padding on a container) is better than one-off css rules.
 
 ## Algolia Search
-
-We use [DocSearch](https://docsearch.algolia.com/) by Algolia for our documentation's search. The site is automatically scraped and indexed weekly by the [Algolia Crawler](https://crawler.algolia.com/).
-
-If the doc search results ever seem outdated or incorrect be sure to check that the crawler isn't blocked. If it is, it might just need to be canceled and restarted to kick things off again. There is also an editor in the Crawler admin that lets you adjust the crawler's script if needed.
-
-如果我的更動了他們總公司
-想問有用嗎
+```
